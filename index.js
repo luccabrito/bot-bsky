@@ -64,14 +64,14 @@ async function main() {
           text: lyric,
         });
         console.log('Just posted the lyric!');
-      } else {
+    } else {
         console.log('Não foi possível obter a letra.');
-      }
-    console.log("Just posted this with JavaScript");
+    }
+  console.log("Just posted this with JavaScript");
 }
+
 main();
-// Run this on a cron job
-const scheduleExpressionMinute = '* * * * *'; // Run once every minute for testing
-const scheduleExpression = '0 */3 * * *'; // Run once every three hours in prod
-const job = new cron_1.CronJob(scheduleExpressionMinute, main); // change to scheduleExpressionMinute for testing
+
+const scheduleExpression = '0 */3 * * *';
+const job = new cron_1.CronJob(scheduleExpression, main);
 job.start();
