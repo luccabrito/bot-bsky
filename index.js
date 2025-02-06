@@ -48,9 +48,10 @@ async function fetchRandomLyric() {
     try {
       const response = await axios.get('https://spillout-production.up.railway.app/lyrics/random');
       const { lyric, track, artist } = response.data;
+      console.log(`Just obtained the lyric of ${track}.`);
       return `${lyric}\n\n(${track} - ${artist})`;
     } catch (error) {
-      console.error('Erro ao pegar a letra aleatória:', error);
+      console.error('Error in retrieving random lyric: ', error);
       return '';
     }
 }
@@ -63,11 +64,10 @@ async function main() {
         await agent.post({
           text: lyric,
         });
-        console.log('Just posted the lyric!');
+        console.log(`Just posted the retrieved lyrics.`);
     } else {
-        console.log('Não foi possível obter a letra.');
+        console.log(`Couldn't post the retrieved lyrics.`);
     }
-  console.log("Just posted this with JavaScript");
 }
 
 main();
