@@ -46,7 +46,7 @@ const agent = new api_1.BskyAgent({
 
 async function fetchRandomLyric() {
     try {
-      const response = await axios.get('https://spillout-production.up.railway.app/lyrics/random');
+      const response = await axios.get('https://spillout-production.up.railway.app/lyrics/random/bot');
       const { lyric, track, artist } = response.data;
       console.log(`Just obtained the lyric of ${track}.`);
       return `${lyric}\n\n(${track} - ${artist})`;
